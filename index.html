@@ -19,6 +19,7 @@ body{background:var(--fondo);color:#fff;font-family:Figtree,system-ui,sans-serif
 img{display:block;max-width:100%}
 .mono{font-family:"DM Mono",monospace;letter-spacing:.14em;text-transform:uppercase;font-size:12.5px}
 .oro{background:linear-gradient(180deg,#FFF3C4 0%,#F2CF6B 30%,#C8962E 58%,#F7DC86 78%,#A9781F 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ia{color:#7FF3FF;-webkit-text-fill-color:#7FF3FF;text-shadow:0 0 18px rgba(64,224,255,.9),0 0 46px rgba(64,224,255,.5)}
 .neon{color:var(--neon);text-shadow:0 0 18px rgba(43,255,136,.55)}
 .t1{font-family:Anton,Impact,sans-serif;font-weight:400;text-transform:uppercase;line-height:1.02;letter-spacing:.01em}
 
@@ -57,12 +58,12 @@ img{display:block;max-width:100%}
 
 .escena{position:relative;align-self:stretch;min-height:640px;overflow:hidden}
 .escena canvas{position:absolute;left:50%;top:2%;width:560px;height:440px;transform:translateX(-50%);opacity:.95}
-.escena .ella{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:92%;max-width:560px;height:auto;filter:drop-shadow(0 0 28px rgba(18,214,107,.35)) drop-shadow(0 20px 40px rgba(0,0,0,.6))}
-.billete{position:absolute;width:150px;z-index:3;pointer-events:none;border-radius:3px;box-shadow:0 18px 30px rgba(0,0,0,.55);animation:flota 6s ease-in-out infinite}
+.escena .ella{z-index:2;position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:92%;max-width:560px;height:auto;filter:drop-shadow(0 0 28px rgba(18,214,107,.35)) drop-shadow(0 20px 40px rgba(0,0,0,.6))}
+.billete{position:absolute;width:150px;z-index:1;pointer-events:none;border-radius:3px;box-shadow:0 18px 30px rgba(0,0,0,.55);animation:flota 6s ease-in-out infinite}
 .billete.b1{right:4%;top:6%;width:150px;transform:perspective(700px) rotateY(-28deg) rotateX(14deg) rotate(-18deg)}
-.billete.b2{right:-40px;top:44%;width:200px;transform:perspective(700px) rotateY(32deg) rotateX(-10deg) rotate(16deg);filter:blur(3px);animation-delay:-2s}
-.billete.b3{left:-90px;top:80%;width:180px;transform:perspective(700px) rotateY(-36deg) rotateX(20deg) rotate(-10deg);filter:blur(4px);animation-delay:-4s}
-.billete.b4{left:8%;top:10%;width:120px;transform:perspective(700px) rotateY(40deg) rotate(26deg);filter:blur(1.5px);animation-delay:-1s}
+.billete.b2{right:-40px;top:44%;width:200px;transform:perspective(700px) rotateY(32deg) rotateX(-10deg) rotate(16deg);animation-delay:-2s}
+.billete.b3{left:-90px;top:80%;width:180px;transform:perspective(700px) rotateY(-36deg) rotateX(20deg) rotate(-10deg);animation-delay:-4s}
+.billete.b4{left:8%;top:10%;width:120px;transform:perspective(700px) rotateY(40deg) rotate(26deg);animation-delay:-1s}
 @keyframes flota{0%,100%{translate:0 0}50%{translate:0 -14px}}
 
 /* ② BARRA DE DATOS (como Trading) */
@@ -134,7 +135,7 @@ footer{max-width:1140px;margin:0 auto;padding:30px 24px 120px;color:rgba(255,255
   <div class="in">
     <div class="texto">
       <div class="mono neon">Masterclass gratuita · en vivo por Zoom</div>
-      <h1 class="t1 oro">Programación<br>millonaria</h1>
+      <h1 class="t1"><span class="oro">Programación</span><br><span class="oro">Millonar</span><span class="ia">IA</span></h1>
       <h2>El dinero sí te llega. <b>Lo que falta es sostenerlo.</b></h2>
       <div class="cuenta" id="cuenta" aria-label="Tiempo para la masterclass"></div>
       <form class="form" id="form" novalidate>
@@ -199,7 +200,7 @@ footer{max-width:1140px;margin:0 auto;padding:30px 24px 120px;color:rgba(255,255
 
 <section class="mentora">
   <div class="in">
-    <div class="foto"><img src="assets/miriam-escenario-rojo.jpg" alt="Miriam Peralta en el escenario" loading="lazy"><img class="billete solo-pc" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Obverse_of_the_series_2009_%24100_Federal_Reserve_Note.jpg/500px-Obverse_of_the_series_2009_%24100_Federal_Reserve_Note.jpg" alt="" style="right:-6px;bottom:30px;width:130px;transform:perspective(700px) rotateY(-30deg) rotate(14deg)"></div>
+    <div class="foto"><img src="assets/miriam-escenario-rojo.jpg" alt="Miriam Peralta en el escenario" loading="lazy"></div>
     <div class="texto2">
       <div class="mono neon">Tu mentora</div>
       <h2 class="t1 oro">Miriam Peralta</h2>
