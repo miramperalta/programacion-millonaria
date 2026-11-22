@@ -42,7 +42,9 @@ img,canvas{display:block;max-width:100%}
 @keyframes flota{0%,100%{translate:0 0}50%{translate:0 -12px}}
 
 /* ① HERO */
-.hero{position:relative;overflow:hidden;background:radial-gradient(55% 55% at 74% 42%,rgba(25,227,255,.18),rgba(3,12,22,0) 70%),radial-gradient(40% 40% at 70% 70%,rgba(43,255,136,.14),rgba(3,12,22,0) 70%),linear-gradient(180deg,#06182a,#030c16)}
+#viaje{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:5;mix-blend-mode:screen}
+.hero,section,.datos,.final,footer{position:relative;z-index:1}
+.hero{overflow:hidden;background:radial-gradient(55% 55% at 74% 42%,rgba(25,227,255,.18),rgba(3,12,22,0) 70%),radial-gradient(40% 40% at 70% 70%,rgba(43,255,136,.14),rgba(3,12,22,0) 70%),linear-gradient(180deg,#06182a,#030c16)}
 .hero .in{position:relative;z-index:2;max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;padding:40px 24px 0}
 .texto{padding-bottom:48px}
 .texto h1{font-size:clamp(50px,6.2vw,86px);padding-top:8px}
@@ -54,6 +56,8 @@ img,canvas{display:block;max-width:100%}
 .cuenta span{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--neon)}
 .form{display:grid;gap:9px;max-width:500px;background:rgba(3,12,22,.6);border:1px solid var(--linea);border-radius:18px;padding:14px;backdrop-filter:blur(8px)}
 .fila{display:grid;grid-template-columns:106px 1fr;gap:8px}
+.form select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,#2BFF88 50%),linear-gradient(135deg,#2BFF88 50%,transparent 50%);background-position:calc(100% - 18px) 52%,calc(100% - 13px) 52%;background-size:5px 5px;background-repeat:no-repeat}
+.form select option{background:#071722;color:#fff}
 .form input,.form select{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);color:#fff;border-radius:11px;padding:14px 13px;font:inherit;font-size:16px;outline:none}
 .form input::placeholder{color:rgba(255,255,255,.55)}
 .form input:focus,.form select:focus{border-color:var(--neon)}
@@ -69,7 +73,7 @@ img,canvas{display:block;max-width:100%}
 .legal{color:rgba(255,255,255,.45);font-size:12px;text-align:center}
 
 .escena{position:relative;height:660px;overflow:hidden}
-.escena .simbolo{position:absolute;left:58%;top:40%;width:780px;height:780px;transform:translate(-50%,-50%)}
+.escena .simbolo{position:absolute;left:55%;top:46%;width:1000px;height:1000px;transform:translate(-50%,-50%) rotate(-18deg)}
 .escena .ella{position:absolute;z-index:2;bottom:0;left:46%;transform:translateX(-50%);height:88%;width:auto;max-width:96%;object-fit:contain;object-position:bottom;filter:drop-shadow(0 0 30px rgba(25,227,255,.25)) drop-shadow(0 22px 40px rgba(0,0,0,.6))}
 
 /* ② DATOS */
@@ -116,17 +120,19 @@ section.envoltura{padding:76px 24px 0}
 
 /* ⑥ TE ACOMPAÑA */
 .acompana{position:relative;margin-top:64px;background:radial-gradient(55% 80% at 25% 55%,rgba(43,255,136,.18),rgba(3,12,22,0) 70%),linear-gradient(180deg,#06202b,#030c16);border-top:1px solid rgba(242,207,107,.35);overflow:hidden;padding:0}
-.acompana .in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;align-items:end;padding:0 24px}
-.acompana .foto{position:relative;height:640px;overflow:hidden}
-.acompana .foto canvas.red{position:absolute;left:50%;top:4%;width:520px;height:440px;transform:translateX(-50%)}
-.acompana .ella2{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:95%;width:auto;z-index:2;filter:drop-shadow(0 0 26px rgba(43,255,136,.35)) drop-shadow(0 20px 40px rgba(0,0,0,.6))}
-.acompana .texto2{padding:70px 0}
+.acompana .in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center;padding:0 24px}
+.acompana .foto{position:relative;height:500px;overflow:hidden;align-self:end}
+.acompana .foto canvas.red{position:absolute;left:50%;top:0;width:500px;height:420px;transform:translateX(-50%)}
+.acompana .ella2{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:96%;width:auto;max-width:100%;object-fit:contain;object-position:bottom;z-index:2;filter:drop-shadow(0 0 26px rgba(43,255,136,.35)) drop-shadow(0 20px 40px rgba(0,0,0,.6))}
+.acompana .texto2{padding:44px 0}
 .acompana h2{font-size:clamp(42px,5vw,64px)}
 .acompana .arq{font-family:Fraunces,serif;font-style:italic;font-size:26px;margin-top:4px}
 .acompana .experta{display:inline-block;margin-top:14px;border:1px solid rgba(25,227,255,.5);background:rgba(25,227,255,.08);border-radius:12px;padding:10px 14px;font-weight:600}
 .acompana .experta b{color:var(--cian)}
 .acompana p{color:var(--suave);margin-top:14px;max-width:560px}
 .acompana p b{color:#fff}
+.lema{font-family:Fraunces,serif;font-style:italic;font-size:21px;line-height:1.35;color:#fff!important;border-left:2px solid var(--neon);padding-left:14px}
+.lema b{font-family:Figtree;font-style:normal;color:var(--neon)!important}
 .ig{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:12px 18px;border:1px solid rgba(43,255,136,.5);border-radius:999px;color:#fff;text-decoration:none;font-weight:600}
 .ig svg{width:20px;height:20px;fill:none;stroke:var(--neon);stroke-width:1.8}
 .ig:hover{background:rgba(43,255,136,.1)}
@@ -139,7 +145,7 @@ footer{max-width:var(--max);margin:0 auto;padding:30px 24px 120px;color:rgba(255
 @media (max-width:900px){
   .hero .in{grid-template-columns:1fr;gap:0;padding:0}
   .escena{order:-1;height:470px}
-  .escena .simbolo{width:520px;height:520px;top:40%;left:56%}
+  .escena .simbolo{width:640px;height:640px;top:44%;left:54%}
   .escena .ella{height:90%;width:auto;max-width:100%;left:50%}
   .escena:after{content:"";position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(180deg,rgba(3,12,22,0),#030c16);z-index:3}
   .texto{padding:18px 18px 24px}
@@ -158,7 +164,7 @@ footer{max-width:var(--max);margin:0 auto;padding:30px 24px 120px;color:rgba(255
   .caja.izq,.caja.der{grid-column:1;grid-row:auto}
   .comunidad{grid-template-columns:1fr;padding:24px}
   .acompana .in{grid-template-columns:1fr;padding:0 18px}
-  .acompana .foto{height:480px;order:-1}
+  .acompana .foto{height:360px;order:-1}
   .acompana .foto canvas.red{width:400px;height:340px}
   .acompana .texto2{padding:6px 0 10px}
   .fija{display:block;position:fixed;left:0;right:0;bottom:0;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(3,12,22,0),rgba(3,12,22,.95) 35%);z-index:9}
@@ -169,6 +175,7 @@ footer{max-width:var(--max);margin:0 auto;padding:30px 24px 120px;color:rgba(255
 </head>
 <body>
 
+<canvas id="viaje" aria-hidden="true"></canvas>
 <header class="hero">
   <div class="in">
     <div class="texto">
@@ -188,21 +195,14 @@ footer{max-width:var(--max);margin:0 auto;padding:30px 24px 120px;color:rgba(255
           <input name="telefono" inputmode="tel" placeholder="Tu WhatsApp" autocomplete="tel-national" aria-label="Tu WhatsApp">
         </div>
         <input name="correo" type="email" placeholder="Tu correo" autocomplete="email" aria-label="Tu correo">
-        <details class="mas">
-          <summary>+ Cuéntame de tu negocio (opcional)</summary>
-          <input name="negocio" placeholder="¿De qué es tu negocio?" style="margin-bottom:8px">
-          <div class="chips" aria-label="¿Qué tarea te quita más tiempo?">
-            <label><input type="radio" name="tarea" value="Editar imágenes"><span>Editar imágenes</span></label>
-            <label><input type="radio" name="tarea" value="Subir contenido"><span>Subir contenido</span></label>
-            <label><input type="radio" name="tarea" value="Pensar las ideas"><span>Pensar ideas</span></label>
-            <label><input type="radio" name="tarea" value="Grabar / no saber qué grabar"><span>Grabar</span></label>
-            <label><input type="radio" name="tarea" value="Capturar datos"><span>Capturar datos</span></label>
-            <label><input type="radio" name="tarea" value="Organizar"><span>Organizar</span></label>
-            <label><input type="radio" name="tarea" value="Revisar pendientes"><span>Pendientes</span></label>
-            <label><input type="radio" name="tarea" value="Otra"><span>Otra</span></label>
-          </div>
-          <input name="otra" placeholder="¿Cuál?" style="display:none;margin-top:8px">
-        </details>
+        <input name="negocio" placeholder="¿De qué es tu negocio? (opcional)" aria-label="¿De qué es tu negocio? (opcional)">
+        <select name="tarea" aria-label="¿Qué tarea te quita más tiempo? (opcional)">
+          <option value="">¿Qué te quita más tiempo? (opcional)</option>
+          <option>Editar imágenes</option><option>Subir contenido</option><option>Pensar las ideas</option>
+          <option>Grabar / no saber qué grabar</option><option>Capturar datos</option><option>Organizar</option>
+          <option>Revisar pendientes</option><option value="Otra">Otra</option>
+        </select>
+        <input name="otra" placeholder="¿Cuál?" style="display:none">
         <button class="boton" type="submit">Quiero mi lugar gratis</button>
         <div class="error" id="error" role="alert"></div>
         <div class="legal">Te llega el acceso por WhatsApp · tus datos solo se usan para esta clase</div>
@@ -240,11 +240,11 @@ footer{max-width:var(--max);margin:0 auto;padding:30px 24px 120px;color:rgba(255
   <h2 class="t1 titulo rev">En esta clase vas a <span class="cian">descubrir</span></h2>
   <div class="mapa" id="mapa">
     <svg class="lineas" id="lineas" aria-hidden="true"></svg>
-    <div class="caja izq r1 rev"><div class="n">01</div><h3>Desde dónde te relacionas con el dinero</h3><p>Cómo se relaciona el miedo con tus emociones y con tu dinero.</p></div>
+    <div class="caja izq r1 rev"><div class="n">01</div><h3>Desde dónde te relacionas con el dinero</h3><p>Cómo se relacionan tus emociones con el dinero.</p></div>
     <div class="cerebro rev"><canvas id="cerebro" width="760" height="760"></canvas></div>
-    <div class="caja der r1 rev"><div class="n">02</div><h3>Por qué te llega fácil… y se va</h3><p>O por qué no llega, aunque sabes muchísimo.</p></div>
-    <div class="caja izq r2 rev"><div class="n">03</div><h3>Desde dónde cobrar</h3><p>Dónde está realmente tu valor, para saber qué cobrar sin esperar "una certificación más".</p></div>
-    <div class="caja der r2 rev"><div class="n">04</div><h3>Qué tareas repites que ya podrías ahorrarte</h3><p>Con inteligencia artificial, para recuperar tiempo y usarlo en lo que sí te genera.</p></div>
+    <div class="caja der r1 rev"><div class="n">02</div><h3>Por qué te llega fácil… y se va</h3><p>O por qué te llega por temporadas, y lo que sabes hoy no se ve proporcional a lo que tienes.</p></div>
+    <div class="caja izq r2 rev"><div class="n">03</div><h3>Desde dónde cobrar</h3><p>Dónde está realmente tu valor para saber cobrar, recibir o dar, sin esperar una certificación más ni que alguien te repita que de verdad te lo mereces.</p></div>
+    <div class="caja der r2 rev"><div class="n">04</div><h3>Qué tareas repites que ya podrías ahorrarte</h3><p>Nos apalancamos con inteligencia artificial para recuperar tiempo y usarlo en lo que sí importa: tu paz, tu tranquilidad, gestionar tus emociones.</p></div>
   </div>
   <div class="centro rev"><a class="boton" href="#form" data-foco>Quiero mi lugar gratis</a></div>
 </section>
@@ -255,7 +255,7 @@ footer{max-width:var(--max);margin:0 auto;padding:30px 24px 120px;color:rgba(255
   <div class="in">
     <div class="foto">
       <canvas class="red" id="cerebro2" width="900" height="760"></canvas>
-      <img class="ella2" src="assets/miriam-roja-recorte.webp" alt="Miriam Peralta" loading="lazy">
+      <img class="ella2" src="assets/miriam-riendo.webp" alt="Miriam Peralta riendo" loading="lazy">
     </div>
     <div class="texto2 rev">
       <div class="mono neon">Te acompaña</div>
@@ -264,7 +264,8 @@ footer{max-width:var(--max);margin:0 auto;padding:30px 24px 120px;color:rgba(255
       <div class="experta">Experta en enseñarte a <b>cobrar más</b> con su metodología <b>RESET económico</b></div>
       <p>Invertí muchísimo en conocimiento: cursos, libros, mentores. Aprendía y aprendía… pero <b>no sabía empaquetar lo que sabía en un buen producto, ni cómo cobrarlo, porque no sabía desde dónde.</b></p>
       <p>Hoy te comparto lo que a mí me cambió: <b>dejar de buscar más información y cambiar desde dónde me relaciono con el dinero.</b></p>
-      <p>Y te enseño cómo, con <b class="ia" style="text-shadow:none">inteligencia artificial</b>, <b>te ahorras muchísimo tiempo</b> en las tareas que hoy repites todos los días.</p>
+      <p>Y a la vez te comparto mis mejores tips de <b class="ia" style="text-shadow:none">inteligencia artificial</b> para <b>ahorrar muchísimo tiempo</b> en las tareas que hoy repites todos los días.</p>
+      <p class="lema">Tu repetición es tu reputación. Lo que hoy haces ya vale la pena: <b>solo tienes que disfrutar cada mínimo detalle.</b></p>
       <a class="ig" href="https://instagram.com/soy_miriamperalta" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@soy_miriamperalta</a>
     </div>
   </div>
@@ -389,9 +390,31 @@ function cerebroForma(W,H){
   }, {passive:true});
 })();
 
+/* símbolos $ y puntitos viajando por toda la página, se mueven al bajar */
+(() => {
+  const c = document.getElementById('viaje'), x = c.getContext('2d'); let W, H, dpr = Math.min(devicePixelRatio||1, 2);
+  const tam = () => { W = innerWidth; H = innerHeight; c.width = W*dpr; c.height = H*dpr; x.setTransform(dpr,0,0,dpr,0,0); };
+  tam(); addEventListener('resize', tam);
+  const N = innerWidth < 700 ? 26 : 46, P = [];
+  for (let i=0;i<N;i++) P.push({x:Math.random(), y:Math.random()*3, v:.00004+Math.random()*.00012, z:.3+Math.random()*.9, s: Math.random()<.35, a:Math.random()*6.28, c: Math.random()<.5 ? '43,255,136' : '25,227,255'});
+  let sy = scrollY; addEventListener('scroll', () => { sy = scrollY; }, {passive:true});
+  const dibuja = (t) => {
+    x.clearRect(0,0,W,H);
+    for (const p of P){
+      const yy = ((p.y*H - sy*p.z*0.35 - t*p.v*H) % (H*1.2) + H*1.2) % (H*1.2) - H*0.1;
+      const xx = p.x*W + Math.sin(t/2400 + p.a)*18*p.z, al = 0.18 + 0.22*p.z;
+      x.shadowBlur = 10; x.shadowColor = `rgba(${p.c},.9)`;
+      if (p.s){ x.font = `700 ${12 + p.z*16}px Georgia,serif`; x.fillStyle = `rgba(${p.c},${al})`; x.fillText('$', xx, yy); }
+      else { x.fillStyle = `rgba(${p.c},${al+.15})`; x.beginPath(); x.arc(xx, yy, 1 + p.z*1.6, 0, 7); x.fill(); }
+    }
+    if (!quieto) requestAnimationFrame(dibuja);
+  };
+  requestAnimationFrame(dibuja);
+})();
+
 /* registro */
 const form = document.getElementById('form'), err = document.getElementById('error');
-form.querySelectorAll('[name=tarea]').forEach(r => r.addEventListener('change', () => { form.otra.style.display = r.value === 'Otra' ? 'block' : 'none'; }));
+form.tarea.addEventListener('change', () => { form.otra.style.display = form.tarea.value === 'Otra' ? 'block' : 'none'; });
 function fail(m, c){ err.textContent = m; c && c.focus(); }
 form.addEventListener('submit', async (ev) => {
   ev.preventDefault(); err.textContent = '';
@@ -402,8 +425,8 @@ form.addEventListener('submit', async (ev) => {
   if (tel.length < 7) return fail('Escribe tu número de WhatsApp.', form.telefono);
   if (!/^\S+@\S+\.\S{2,}$/.test(correo)) return fail('Revisa tu correo, parece incompleto.', form.correo);
   btn.setAttribute('aria-busy','true'); btn.textContent = 'Guardando tu lugar…';
-  const negocio = form.negocio.value.trim(); const sel = form.querySelector('[name=tarea]:checked');
-  const tarea = sel ? (sel.value === 'Otra' ? 'Otra: ' + form.otra.value.trim() : sel.value) : '';
+  const negocio = form.negocio.value.trim(); const t = form.tarea.value;
+  const tarea = t ? (t === 'Otra' ? 'Otra: ' + form.otra.value.trim() : t) : '';
   const extra = [negocio && 'Negocio: ' + negocio, tarea && 'Tarea: ' + tarea].filter(Boolean).join(' · ');
   const cuerpo = JSON.stringify({ nombre, correo, telefono: cc + tel, pais, evento: CONFIG.EVENTO, fecha: CONFIG.FECHA + (extra ? ' · ' + extra : ''), negocio, tarea });
   let ok = false;
