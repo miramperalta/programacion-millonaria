@@ -55,14 +55,14 @@ img{display:block;max-width:100%}
 .error{color:#FF9CB0;font-size:14px;min-height:16px}
 .legal{color:rgba(255,255,255,.45);font-size:12px;text-align:center}
 
-.escena{position:relative;align-self:stretch;min-height:640px}
+.escena{position:relative;align-self:stretch;min-height:640px;overflow:hidden}
 .escena canvas{position:absolute;left:50%;top:2%;width:560px;height:440px;transform:translateX(-50%);opacity:.95}
-.escena .ella{position:absolute;bottom:0;left:50%;transform:translateX(-46%);height:96%;width:auto;filter:drop-shadow(0 0 28px rgba(18,214,107,.35)) drop-shadow(0 20px 40px rgba(0,0,0,.6))}
-.billete{position:absolute;width:150px;z-index:3;pointer-events:none;filter:drop-shadow(0 14px 20px rgba(0,0,0,.5));animation:flota 6s ease-in-out infinite}
-.billete.b1{right:2%;top:12%;transform:rotate(-24deg);width:140px}
-.billete.b2{right:-30px;top:52%;transform:rotate(18deg);width:190px;filter:blur(3px) drop-shadow(0 14px 20px rgba(0,0,0,.5));animation-delay:-2s}
-.billete.b3{left:-36px;top:66%;transform:rotate(-12deg);width:170px;filter:blur(4px);animation-delay:-4s}
-.billete.b4{left:44%;top:4%;transform:rotate(30deg);width:110px;filter:blur(1.5px);animation-delay:-1s}
+.escena .ella{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:92%;max-width:560px;height:auto;filter:drop-shadow(0 0 28px rgba(18,214,107,.35)) drop-shadow(0 20px 40px rgba(0,0,0,.6))}
+.billete{position:absolute;width:150px;z-index:3;pointer-events:none;border-radius:3px;box-shadow:0 18px 30px rgba(0,0,0,.55);animation:flota 6s ease-in-out infinite}
+.billete.b1{right:4%;top:6%;width:150px;transform:perspective(700px) rotateY(-28deg) rotateX(14deg) rotate(-18deg)}
+.billete.b2{right:-40px;top:44%;width:200px;transform:perspective(700px) rotateY(32deg) rotateX(-10deg) rotate(16deg);filter:blur(3px);animation-delay:-2s}
+.billete.b3{left:-90px;top:80%;width:180px;transform:perspective(700px) rotateY(-36deg) rotateX(20deg) rotate(-10deg);filter:blur(4px);animation-delay:-4s}
+.billete.b4{left:8%;top:10%;width:120px;transform:perspective(700px) rotateY(40deg) rotate(26deg);filter:blur(1.5px);animation-delay:-1s}
 @keyframes flota{0%,100%{translate:0 0}50%{translate:0 -14px}}
 
 /* ② BARRA DE DATOS (como Trading) */
@@ -87,9 +87,10 @@ img{display:block;max-width:100%}
 
 /* ④ TU MENTORA (como Fabio) */
 .mentora{position:relative;margin-top:60px;background:radial-gradient(60% 80% at 25% 60%,rgba(18,214,107,.22),rgba(4,16,26,0) 70%),linear-gradient(180deg,#06202b,#04101a);border-top:1px solid rgba(242,207,107,.35);overflow:hidden}
-.mentora .in{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:.8fr 1.2fr;gap:30px;align-items:end;padding:0 24px}
-.mentora .foto{position:relative;height:520px}
-.mentora .foto img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:100%;width:auto;filter:drop-shadow(0 0 30px rgba(18,214,107,.3))}
+.mentora .in{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:center;padding:0 24px}
+.mentora .foto{position:relative;padding:48px 0}
+.mentora .foto img{width:100%;max-width:400px;margin:0 auto;aspect-ratio:2/3;object-fit:cover;border-radius:22px;border:1px solid rgba(242,207,107,.5);box-shadow:0 0 50px rgba(18,214,107,.25),0 30px 60px rgba(0,0,0,.5)}
+.mentora .foto .billete{position:absolute;z-index:2}
 .mentora .texto2{padding:56px 0}
 .mentora h2{font-size:clamp(40px,5vw,62px)}
 .mentora p{color:var(--suave);margin-top:12px;max-width:560px}
@@ -101,12 +102,12 @@ footer{max-width:1140px;margin:0 auto;padding:30px 24px 120px;color:rgba(255,255
 
 @media (max-width:860px){
   .hero .in{grid-template-columns:1fr;gap:0;padding:0}
-  .escena{order:-1;min-height:470px}
+  .escena{order:-1;min-height:400px}
   .escena canvas{width:420px;height:330px;top:0}
-  .escena .ella{height:100%}
-  .escena:after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(180deg,rgba(4,16,26,0),#04101a);z-index:2}
-  .billete.b1{width:96px;right:4%}.billete.b2{width:130px}.billete.b3{width:120px;left:-30px}.billete.b4{width:80px;left:8%;top:10%}
-  .texto{padding:0 18px 20px;margin-top:-90px;position:relative;z-index:3}
+  .escena .ella{width:100%}
+  .escena:after{content:"";position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(180deg,rgba(4,16,26,0),#04101a);z-index:2}
+  .billete.b1{width:100px;right:3%;top:4%}.billete.b2{width:130px;top:38%}.billete.b3{width:110px;left:-60px;top:78%}.billete.b4{width:80px;left:4%;top:6%}
+  .texto{padding:18px 18px 20px;position:relative;z-index:3}
   .texto h1{text-align:center}
   .texto h2,.texto .mono{text-align:center}
   .cuenta{justify-content:center}
@@ -118,7 +119,8 @@ footer{max-width:1140px;margin:0 auto;padding:30px 24px 120px;color:rgba(255,255
   .tres{grid-template-columns:1fr}
   .bloque{padding:34px 18px 0}
   .mentora .in{grid-template-columns:1fr;padding:0 18px}
-  .mentora .foto{height:400px;order:-1;margin-top:24px}
+  .mentora .foto{order:-1;padding:30px 10px 0}
+  .mentora .foto img{max-width:300px}
   .mentora .texto2{padding:6px 0 10px}
   .solo-pc{display:none}
   .fija{display:block;position:fixed;left:0;right:0;bottom:0;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(4,16,26,0),rgba(4,16,26,.95) 35%);z-index:9}
@@ -169,9 +171,9 @@ footer{max-width:1140px;margin:0 auto;padding:30px 24px 120px;color:rgba(255,255
     </div>
     <div class="escena" aria-hidden="true">
       <canvas id="cerebro" width="1120" height="880"></canvas>
-      <img class="ella" src="assets/miriam-de-pie.webp" alt="">
-      <img class="billete b1" src="assets/billete.svg" alt=""><img class="billete b2" src="assets/billete.svg" alt="">
-      <img class="billete b3" src="assets/billete.svg" alt=""><img class="billete b4" src="assets/billete.svg" alt="">
+      <img class="ella" src="assets/miriam-cafe.webp" alt="">
+      <img class="billete b1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Obverse_of_the_series_2009_%24100_Federal_Reserve_Note.jpg/500px-Obverse_of_the_series_2009_%24100_Federal_Reserve_Note.jpg" alt=""><img class="billete b2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Obverse_of_the_series_2009_%24100_Federal_Reserve_Note.jpg/500px-Obverse_of_the_series_2009_%24100_Federal_Reserve_Note.jpg" alt="">
+      <img class="billete b3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Obverse_of_the_series_2009_%24100_Federal_Reserve_Note.jpg/500px-Obverse_of_the_series_2009_%24100_Federal_Reserve_Note.jpg" alt=""><img class="billete b4" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Obverse_of_the_series_2009_%24100_Federal_Reserve_Note.jpg/500px-Obverse_of_the_series_2009_%24100_Federal_Reserve_Note.jpg" alt="">
     </div>
   </div>
 </header>
@@ -196,10 +198,8 @@ footer{max-width:1140px;margin:0 auto;padding:30px 24px 120px;color:rgba(255,255
 </section>
 
 <section class="mentora">
-  <img class="billete solo-pc" src="assets/billete.svg" alt="" style="left:6%;top:8%;transform:rotate(-18deg);width:120px;filter:blur(2px)">
-  <img class="billete solo-pc" src="assets/billete.svg" alt="" style="left:30%;top:60%;transform:rotate(22deg);width:150px;animation-delay:-3s">
   <div class="in">
-    <div class="foto"><img src="assets/miriam-mentora.webp" alt="Miriam Peralta"></div>
+    <div class="foto"><img src="assets/miriam-escenario-rojo.jpg" alt="Miriam Peralta en el escenario" loading="lazy"><img class="billete solo-pc" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Obverse_of_the_series_2009_%24100_Federal_Reserve_Note.jpg/500px-Obverse_of_the_series_2009_%24100_Federal_Reserve_Note.jpg" alt="" style="right:-6px;bottom:30px;width:130px;transform:perspective(700px) rotateY(-30deg) rotate(14deg)"></div>
     <div class="texto2">
       <div class="mono neon">Tu mentora</div>
       <h2 class="t1 oro">Miriam Peralta</h2>
