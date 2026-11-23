@@ -42,9 +42,9 @@ img,canvas{display:block;max-width:100%}
 @keyframes flota{0%,100%{translate:0 0}50%{translate:0 -12px}}
 
 /* ① HERO */
-#viaje{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:5;mix-blend-mode:screen}
+#viaje{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:0}
 .hero,section,.datos,.final,footer{position:relative;z-index:1}
-.hero{overflow:hidden;background:radial-gradient(55% 55% at 74% 42%,rgba(25,227,255,.18),rgba(3,12,22,0) 70%),radial-gradient(40% 40% at 70% 70%,rgba(43,255,136,.14),rgba(3,12,22,0) 70%),linear-gradient(180deg,#06182a,#030c16)}
+.hero{overflow:hidden;background:radial-gradient(55% 55% at 74% 42%,rgba(25,227,255,.18),rgba(3,12,22,0) 70%),radial-gradient(40% 40% at 70% 70%,rgba(43,255,136,.14),rgba(3,12,22,0) 70%),linear-gradient(180deg,rgba(6,24,42,.75),rgba(3,12,22,0))}
 .hero .in{position:relative;z-index:2;max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;padding:40px 24px 0}
 .texto{padding-bottom:48px}
 .texto h1{font-size:clamp(50px,6.2vw,86px);padding-top:8px}
@@ -119,7 +119,7 @@ section.envoltura{padding:76px 24px 0}
 .cuatro span{font-size:15px;color:var(--suave)}
 
 /* ⑥ TE ACOMPAÑA */
-.acompana{position:relative;margin-top:64px;background:radial-gradient(55% 80% at 25% 55%,rgba(43,255,136,.18),rgba(3,12,22,0) 70%),linear-gradient(180deg,#06202b,#030c16);border-top:1px solid rgba(242,207,107,.35);overflow:hidden;padding:0}
+.acompana{position:relative;margin-top:64px;background:radial-gradient(55% 80% at 25% 55%,rgba(43,255,136,.18),rgba(3,12,22,0) 70%),linear-gradient(180deg,rgba(6,32,43,.7),rgba(3,12,22,0));border-top:1px solid rgba(242,207,107,.35);overflow:hidden;padding:0}
 .acompana .in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center;padding:0 24px}
 .acompana .foto{position:relative;height:500px;overflow:hidden;align-self:end}
 .acompana .foto canvas.red{position:absolute;left:50%;top:0;width:500px;height:420px;transform:translateX(-50%)}
@@ -147,6 +147,7 @@ footer{max-width:var(--max);margin:0 auto;padding:30px 24px 120px;color:rgba(255
   .escena{order:-1;height:470px}
   .escena .simbolo{width:640px;height:640px;top:44%;left:54%}
   .escena .ella{height:90%;width:auto;max-width:100%;left:50%}
+  .escena .billete{display:none}
   .escena:after{content:"";position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(180deg,rgba(3,12,22,0),#030c16);z-index:3}
   .texto{padding:18px 18px 24px}
   .texto h1,.texto h2,.texto>.mono{text-align:center}
@@ -327,9 +328,9 @@ function cerebroForma(W,H){
 (() => {
   const c = document.getElementById('simbolo'); const W = c.width, H = c.height;
   const o = document.createElement('canvas'); o.width = W; o.height = H; const ox = o.getContext('2d');
-  ox.fillStyle = '#000'; ox.font = `700 ${H*0.9}px Georgia, "Times New Roman", serif`; ox.textAlign = 'center'; ox.textBaseline = 'middle'; ox.fillText('$', W/2, H*0.52);
+  ox.fillStyle = '#000'; ox.font = `900 ${H*0.92}px "Arial Black", Impact, sans-serif`; ox.textAlign = 'center'; ox.textBaseline = 'middle'; ox.fillText('$', W/2, H*0.52);
   const d = ox.getImageData(0,0,W,H).data;
-  red(c, (px,py) => d[(Math.floor(py)*W + Math.floor(px))*4 + 3] > 128, {n:620, dist:46, color:'25,227,255', punto:'#B8F6FF', oro:.14, semilla:7});
+  red(c, (px,py) => d[(Math.floor(py)*W + Math.floor(px))*4 + 3] > 128, {n:820, dist:46, color:'25,227,255', punto:'#B8F6FF', oro:.14, semilla:7});
 })();
 (() => { const c = document.getElementById('cerebro'); red(c, cerebroForma(c.width,c.height), {n:560, dist:58, color:'25,227,255', punto:'#B8F6FF', oro:.08, semilla:5}); })();
 (() => { const c = document.getElementById('cerebro2'); red(c, cerebroForma(c.width,c.height), {n:480, dist:66, color:'43,255,136', punto:'#9DFFC9', oro:.15, semilla:11}); })();
@@ -395,14 +396,14 @@ function cerebroForma(W,H){
   const c = document.getElementById('viaje'), x = c.getContext('2d'); let W, H, dpr = Math.min(devicePixelRatio||1, 2);
   const tam = () => { W = innerWidth; H = innerHeight; c.width = W*dpr; c.height = H*dpr; x.setTransform(dpr,0,0,dpr,0,0); };
   tam(); addEventListener('resize', tam);
-  const N = innerWidth < 700 ? 26 : 46, P = [];
-  for (let i=0;i<N;i++) P.push({x:Math.random(), y:Math.random()*3, v:.00004+Math.random()*.00012, z:.3+Math.random()*.9, s: Math.random()<.35, a:Math.random()*6.28, c: Math.random()<.5 ? '43,255,136' : '25,227,255'});
+  const N = innerWidth < 700 ? 12 : 22, P = [];
+  for (let i=0;i<N;i++) P.push({x:Math.random(), y:Math.random()*3, v:.000012+Math.random()*.00002, z:.3+Math.random()*.9, s: true, a:Math.random()*6.28, c: Math.random()<.5 ? '43,255,136' : '25,227,255'});
   let sy = scrollY; addEventListener('scroll', () => { sy = scrollY; }, {passive:true});
   const dibuja = (t) => {
     x.clearRect(0,0,W,H);
     for (const p of P){
-      const yy = ((p.y*H - sy*p.z*0.35 - t*p.v*H) % (H*1.2) + H*1.2) % (H*1.2) - H*0.1;
-      const xx = p.x*W + Math.sin(t/2400 + p.a)*18*p.z, al = 0.18 + 0.22*p.z;
+      const yy = ((p.y*H - sy*p.z*0.12 - t*p.v*H) % (H*1.2) + H*1.2) % (H*1.2) - H*0.1;
+      const xx = p.x*W + Math.sin(t/6000 + p.a)*10*p.z, al = 0.18 + 0.22*p.z;
       x.shadowBlur = 10; x.shadowColor = `rgba(${p.c},.9)`;
       if (p.s){ x.font = `700 ${12 + p.z*16}px Georgia,serif`; x.fillStyle = `rgba(${p.c},${al})`; x.fillText('$', xx, yy); }
       else { x.fillStyle = `rgba(${p.c},${al+.15})`; x.beginPath(); x.arc(xx, yy, 1 + p.z*1.6, 0, 7); x.fill(); }
